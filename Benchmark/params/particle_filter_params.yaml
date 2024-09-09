@@ -1,0 +1,11 @@
+number_of_beams: 45
+
+dt: 0.04
+number_of_particles: 1000
+motion_q_stds: [0.05, 0.05, 0.05]
+
+wheelbase: 0.33
+fov: 4.7
+
+init_distribution: 5
+

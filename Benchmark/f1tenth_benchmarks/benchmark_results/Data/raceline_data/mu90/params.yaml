@@ -1,0 +1,7 @@
+!!python/object:argparse.Namespace
+max_kappa: 0.99
+max_lateral_acc: 8.5
+max_longitudinal_acc: 8.5
+mu: 0.9
+raceline_step: 0.2
+vehicle_width: 1.1
