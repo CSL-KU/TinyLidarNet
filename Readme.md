@@ -118,7 +118,7 @@ After training is complete, you can find the trained models in the Models direct
 
 Navigate to the Figure folder within TinyLidarNet to view the learning curves of the training process. These figures will provide insights into the model's performance during training.
 
-In the train.py script, there's a section for Global Variables. Within this section, you'll find the variable dataset_path. You can add new dataset files you collected to this path to aggregate them with the previously used dataset. This is particularly useful when using HG-Dagger.
+In the train.py script, there's a section for Global Variables. Within this section, you'll find the variable dataset_path. You can add new dataset files you collected to this path to aggregate them with the previously used dataset. This is particularly useful when using HG-Dagger [[HG-DAgger: Interactive Imitation Learning with Human Experts](https://arxiv.org/abs/1810.02890)].
 
 The train.py script will also generate an evaluation of your trained model, including:
 - Losses
@@ -149,11 +149,11 @@ python inference.py
 ```
 This script will initially start in manual mode. You can use your joystick to manually control the car. Press the 'A' button on your joystick to switch to autonomous mode. Press 'A' again to switch back to manual mode.
 
-If you want to implement HG-Dagger for continuous learning, use a third terminal or pane to run the data collection script:
+If you want to implement HG-Dagger [[HG-DAgger: Interactive Imitation Learning with Human Experts](https://arxiv.org/abs/1810.02890)] for continuous learning, use a third terminal or pane to run the data collection script:
 ```
 python data_collection.py
 ```
-Press the 'X' button on your joystick to start collecting data while the car is in autonomous mode. This will collect data for fine-tuning the model using HG-Dagger.
+Press the 'X' button on your joystick to start collecting data while the car is in autonomous mode. This will collect data for fine-tuning the model using HG-Dagger [[HG-DAgger: Interactive Imitation Learning with Human Experts](https://arxiv.org/abs/1810.02890)].
 
 ## Citation
 If you have found our work useful, please consider citing:
