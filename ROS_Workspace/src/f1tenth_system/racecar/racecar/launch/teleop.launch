@@ -1,0 +1,28 @@
+<!-- This launch file configures and launches the Racecar system -->
+
+<!-- Specify the version of the Racecar (default is racecar-v2) -->
+<launch>
+  <arg name="racecar_version" default="racecar-v2" />
+
+  <!-- Flag to determine if camera should be run (default is true) -->
+  <arg name="run_camera" default="true"/>   
+  <!-- Example of disabling camera (uncomment line below) -->
+  <!-- <arg name="run_camera" default="false"/> -->
+  
+  <!-- Setting a parameter to check Joy for Autonomous Control-->
+  <param name="is_joy" type="bool" value="true"/>
+
+  <!-- Include the teleoperation launch file for the specified Racecar version -->
+  <include file="$(find racecar)/launch/includes/$(arg racecar_version)-teleop.launch.xml">
+    <!-- Pass the racecar_version and run_camera arguments to the included launch file -->
+    <arg name="racecar_version" value="$(arg racecar_version)" />
+    <arg name="run_camera" value="$(arg run_camera)" />
+  </include>
+
+  <!-- Node to apply laser filters -->
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain"  name="laser_filter" output="screen">
+    <!-- Load laser filter configuration from specified YAML file -->
+    <rosparam command="load" file="/home/f1tenth/ROS_Workspace/src/f1tenth_system/racecar/racecar/config/racecar-v2/my_laser_config.yaml" />
+  </node>
+
+</launch>

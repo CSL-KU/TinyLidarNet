@@ -1,0 +1,46 @@
+scan_filter_chain:
+- type: laser_filters/LaserArrayFilter
+  name: laser_median_filter
+  params:
+    range_filter_chain:
+      - name: median_5
+        type: filters/MultiChannelMedianFilterFloat
+        params:
+          number_of_observations: 5
+          #unused: 10
+    intensity_filter_chain:
+      - name: median_5
+        type: filters/MultiChannelMedianFilterFloat
+        params:
+          number_of_observations: 5
+          #unused: 10
+- name: interpolation
+  type: laser_filters/InterpolationFilter
+
+  
+#- name: shadows
+#  type: laser_filters/ScanShadowsFilter
+#  params:
+#    min_angle: 10
+#    max_angle: 80
+#    neighbors: 10
+#    window: 10
+#- name: dark_shadows
+#  type: laser_filters/LaserScanIntensityFilter
+#  params: 
+#    lower_threshold: 100
+#    upper_threshold: 10000
+#    disp_histogram: 0
+# 
+# Chat GPT
+#- name: range
+#  type: laser_filters/LaserScanRangeFilter
+
+#  params:
+#    lower_threshold: 0.02
+#    upper_threshold: 30.0
+#- name: interpolation
+#  type: laser_filters/LaserScanInterpolationFilter
+#  params:
+#    window_size: 5
+#    interpolation_type: 1

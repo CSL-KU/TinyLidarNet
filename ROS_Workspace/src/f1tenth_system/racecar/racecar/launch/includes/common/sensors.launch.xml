@@ -1,0 +1,16 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+  <arg name="racecar_version" />
+  <arg name="sensors_config"
+       default="$(find racecar)/config/$(arg racecar_version)/sensors.yaml" />
+
+  <rosparam file="$(arg sensors_config)" command="load" />
+
+  <!-- laser -->
+  <node name="laser_node" pkg="urg_node" type="urg_node">
+    <param name="ip_address" value="192.168.0.10"/>
+  </node>
+<!-- Set the port to connect to here -->
+<!--  <param name="port" type="string" value="/dev/ttyACM0"/> -->
+
+</launch>
