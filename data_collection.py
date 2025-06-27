@@ -1,4 +1,5 @@
 # Import necessary libraries
+import rospy
 import rosbag
 import message_filters
 from sensor_msgs.msg import Joy
