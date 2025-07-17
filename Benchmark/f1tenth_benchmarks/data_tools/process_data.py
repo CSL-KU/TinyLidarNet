@@ -7,7 +7,7 @@ import os
 
 def process_data():
     #folders = glob.glob("Logs/*")
-    folders = glob.glob("/home/m810z573/Downloads/f1tenth_benchmarks/f1tenth_benchmarks/benchmark_results/Logs/*")
+    folders = glob.glob(os.getcwd()[0:-len(os.getcwd().lower().split("tinylidarnet")[-1])]+"/Benchmark/f1tenth_benchmarks/benchmark_results/Logs/*")
     #folders = "/home/m810z573/Downloads/f1tenth_benchmarks/f1tenth_benchmarks/benchmark_results/Logs/*"
     full_df = []
     summary_df = []
@@ -29,11 +29,11 @@ def process_data():
 
     full_df = pd.concat(full_df)
     full_df = full_df.sort_values(by=["Vehicle", "TestMap"])
-    full_df.to_csv("/home/m810z573/Downloads/f1tenth_benchmarks/f1tenth_benchmarks/benchmark_results/Logs/Full.csv", index=False, float_format='%.4f')
+    full_df.to_csv(os.getcwd()[0:-len(os.getcwd().lower().split("tinylidarnet")[-1])]+"/Benchmark/f1tenth_benchmarks/benchmark_results/Logs/Full.csv", index=False, float_format='%.4f')
     summary_df = pd.DataFrame(summary_df)
     summary_df['VehicleID'] = summary_df['Vehicle'] + "_" + summary_df['TestID']
     summary_df = summary_df.sort_values(by=["Vehicle", "MapName"])
-    summary_df.to_csv("/home/m810z573/Downloads/f1tenth_benchmarks/f1tenth_benchmarks/benchmark_results/Logs/Summary.csv", index=False, float_format='%.4f')
+    summary_df.to_csv(os.getcwd()[0:-len(os.getcwd().lower().split("tinylidarnet")[-1])]+"/Benchmark/f1tenth_benchmarks/benchmark_results/Logs/Summary.csv", index=False, float_format='%.4f')
     print("Complied Full.csv and Summary.csv.")
 
 if __name__ == "__main__":

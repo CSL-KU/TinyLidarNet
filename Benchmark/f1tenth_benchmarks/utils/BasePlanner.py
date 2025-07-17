@@ -43,13 +43,13 @@ def ensure_path_exists(folder):
 
 
 def load_parameter_file(planner_name):
-    file_name = f"/home/m810z573/Downloads/f1tenth_benchmarks/params/{planner_name}.yaml"
+    file_name = os.getcwd()[0:-len(os.getcwd().lower().split("tinylidarnet")[-1])]+"/Benchmark/params/"+planner_name+".yaml"
     with open(file_name, 'r') as file:
         params = yaml.load(file, Loader=yaml.FullLoader)
     return Namespace(**params)
 
 def load_parameter_file_with_extras(planner_name, extra_params):
-    file_name = f"/home/m810z573/Downloads/f1tenth_benchmarks/params/{planner_name}.yaml"
+    file_name = os.getcwd()[0:-len(os.getcwd().lower().split("tinylidarnet")[-1])]+"/Benchmark/params/"+planner_name+".yaml"
     with open(file_name, 'r') as file:
         params = yaml.load(file, Loader=yaml.FullLoader)
     for param in extra_params.keys():

@@ -81,7 +81,7 @@ class TrackLine:
 
 
 class CentreLine(TrackLine):
-    def __init__(self, map_name, directory=f"/home/m810z573/Downloads/f1tenth_benchmarks/maps/") -> None:
+    def __init__(self, map_name, directory=os.getcwd()[0:-len(os.getcwd().lower().split("tinylidarnet")[-1])]+"/Benchmark/maps/") -> None:
         self.map_name = map_name
 
         self.load_track(map_name, directory)
